@@ -34,7 +34,7 @@ function EditCategories() {
     productDataFormData.append('file', data.file[0])
 
     await toast.promise(
-      apiBurgerStore.put(`categories/${categories.id}`, productDataFormData),
+      apiBurgerStore.put(`categories/${category.id}`, productDataFormData),
       {
         pending: 'Checking',
         success: 'Done!',
