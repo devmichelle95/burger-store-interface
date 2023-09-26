@@ -30,8 +30,6 @@ function EditCategories() {
 
   const onSubmit = async data => {
     const productDataFormData = new FormData()
-
-    productDataFormData.append('id', data.id)
     productDataFormData.append('name', data.name)
     productDataFormData.append('file', data.file[0])
 
