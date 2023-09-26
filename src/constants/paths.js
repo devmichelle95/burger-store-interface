@@ -3,6 +3,7 @@ const paths = {
   Products: '/list-of-products',
   Edit: '/edit-product',
   NewProduct: '/new-product',
+  NewCatgeory: '/new-category',
   Home: '/',
   Login: '/login',
   Menu: '/products',

@@ -1,5 +1,6 @@
 import AddShoppingCartRoundedIcon from '@mui/icons-material/AddShoppingCartRounded'
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined'
+import PlaylistAddCheckCircleOutlinedIcon from '@mui/icons-material/PlaylistAddCheckCircleOutlined'
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined'
 
 import path from '../../constants/paths'
@@ -22,6 +23,12 @@ const listlink = [
     label: 'New Product',
     link: path.NewProduct,
     icon: AddShoppingCartRoundedIcon
+  },
+  {
+    id: 4,
+    label: 'New Category',
+    link: path.NewCatgeory,
+    icon: PlaylistAddCheckCircleOutlinedIcon
   }
 ]
 

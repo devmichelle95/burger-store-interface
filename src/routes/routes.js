@@ -21,6 +21,7 @@ function MyRoutes() {
           <Route path={paths.Products} element={<Admin />} />
           <Route path={paths.NewProduct} element={<Admin />} />
           <Route path={paths.Edit} element={<Admin />} />
+          <Route path={paths.NewCatgeory} element={<Admin />} />
         </Route>
       </Routes>
     </Router>

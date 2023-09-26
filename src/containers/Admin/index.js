@@ -6,6 +6,7 @@ import { SideMenuAdmin } from '../../components'
 import paths from '../../constants/paths'
 import EditProducts from './EditProduct'
 import ListProducts from './ListProducts'
+import NewCategory from './NewCategory'
 import NewProduct from './NewProduct'
 import Orders from './Orders'
 import { Container, ContainerItems } from './styles'
@@ -20,6 +21,7 @@ export function Admin() {
         {locationPathname === paths.Products && <ListProducts />}
         {locationPathname === paths.NewProduct && <NewProduct />}
         {locationPathname === paths.Edit && <EditProducts />}
+        {locationPathname === paths.NewCatgeory && <NewCategory />}
       </ContainerItems>
     </Container>
   )
