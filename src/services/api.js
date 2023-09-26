@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiBurgerStore = axios.create({
-  baseURL: 'api-burger-store-production.up.railway.app'
+  baseURL: 'https://api-burger-store-production.up.railway.app'
 })
 
 apiBurgerStore.interceptors.request.use(async config => {
