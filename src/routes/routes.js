@@ -22,6 +22,8 @@ function MyRoutes() {
           <Route path={paths.NewProduct} element={<Admin />} />
           <Route path={paths.Edit} element={<Admin />} />
           <Route path={paths.NewCatgeory} element={<Admin />} />
+          <Route path={paths.EditCategory} element={<Admin />} />
+          <Route path={paths.AllCategories} element={<Admin />} />
         </Route>
       </Routes>
     </Router>

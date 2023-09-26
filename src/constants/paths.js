@@ -4,6 +4,8 @@ const paths = {
   Edit: '/edit-product',
   NewProduct: '/new-product',
   NewCatgeory: '/new-category',
+  EditCategory: '/edit-category',
+  AllCategories: '/all-categories',
   Home: '/',
   Login: '/login',
   Menu: '/products',

@@ -4,7 +4,9 @@ import { useLocation } from 'react-router-dom'
 
 import { SideMenuAdmin } from '../../components'
 import paths from '../../constants/paths'
+import EditCategories from './EditCategory'
 import EditProducts from './EditProduct'
+import ListCategories from './ListCategories'
 import ListProducts from './ListProducts'
 import NewCategory from './NewCategory'
 import NewProduct from './NewProduct'
@@ -22,6 +24,8 @@ export function Admin() {
         {locationPathname === paths.NewProduct && <NewProduct />}
         {locationPathname === paths.Edit && <EditProducts />}
         {locationPathname === paths.NewCatgeory && <NewCategory />}
+        {locationPathname === paths.EditCategory && <EditCategories />}
+        {locationPathname === paths.AllCategories && <ListCategories />}
       </ContainerItems>
     </Container>
   )

@@ -1,4 +1,5 @@
 import AddShoppingCartRoundedIcon from '@mui/icons-material/AddShoppingCartRounded'
+import FormatListBulletedRoundedIcon from '@mui/icons-material/FormatListBulletedRounded'
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined'
 import PlaylistAddCheckCircleOutlinedIcon from '@mui/icons-material/PlaylistAddCheckCircleOutlined'
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined'
@@ -29,6 +30,12 @@ const listlink = [
     label: 'New Category',
     link: path.NewCatgeory,
     icon: PlaylistAddCheckCircleOutlinedIcon
+  },
+  {
+    id: 5,
+    label: 'Categories',
+    link: path.AllCategories,
+    icon: FormatListBulletedRoundedIcon
   }
 ]
 
