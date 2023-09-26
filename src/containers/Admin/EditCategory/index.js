@@ -74,7 +74,7 @@ function EditCategories() {
           <input
             type="file"
             id="image-input"
-            accept="image/png, image/jpeg, image/svg"
+            accept="image/png, image/jpeg, image/jpg"
             {...register('file')}
             onChange={value => {
               setFileName(value.target.files[0]?.name)
