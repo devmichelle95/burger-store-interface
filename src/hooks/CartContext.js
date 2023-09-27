@@ -61,6 +61,7 @@ export const CartProvider = ({ children }) => {
   }
   const eraseAtLogout = async () => {
     await localStorage.removeItem('codeburger:cartInfo')
+    await sessionStorage.clear('codeburger:cartInfo')
   }
 
   useEffect(() => {
