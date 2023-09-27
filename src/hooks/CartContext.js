@@ -60,8 +60,7 @@ export const CartProvider = ({ children }) => {
     }
   }
   const eraseAtLogout = async () => {
-    // await localStorage.removeItem('codeburger:cartInfo')
-    await sessionStorage.clear('codeburger:cartInfo')
+    await localStorage.clear('codeburger:cartInfo')
   }
 
   useEffect(() => {
