@@ -22,25 +22,11 @@ export function CartResume() {
     const order = cartProducts.map(product => {
       return { id: product.id, quantity: product.quantity }
     })
-    try {
-      const { status } = await apiBurgerStore.post(
-        'order',
-        { products: order },
-        { validateStatus: () => true }
-      )
-      if (status === 201 || status === 200) {
-        toast.success('Order realized successfully')
-      } else {
-        throw new Error()
-      }
-    } catch (err) {
-      toast.error('Something went wrong, please try again')
-    }
-    // await toast.promise(apiBurgerStore.post('order', { products: order }), {
-    // pending: 'Processing your order',
-    // success: 'Order realized successfully',
-    // error: 'Something went wrong, please try again'
-    // })
+    await toast.promise(apiBurgerStore.post('order', { products: order }), {
+      pending: 'Processing your order',
+      success: 'Order realized successfully',
+      error: 'Something went wrong, please try again'
+    })
   }
   return (
     <div>
