@@ -60,7 +60,7 @@ export const CartProvider = ({ children }) => {
     }
   }
   const eraseAtFinish = async () => {
-    await localStorage.clear('codeburger:cartInfo')
+    await localStorage.removeItem('codeburger:cartInfo')
   }
 
   useEffect(() => {
