@@ -22,13 +22,16 @@ export function CartResume() {
     const order = cartProducts.map(product => {
       return { id: product.id, quantity: product.quantity }
     })
-    await toast.promise(apiBurgerStore.post('order', { products: order }), {
-      pending: 'Processing your order',
-      success: 'Order realized successfully',
-      error: 'Something went wrong, please try again'
-    })
+    const sendAPI = await toast.promise(
+      apiBurgerStore.post('order', { products: order }),
+      {
+        pending: 'Processing your order',
+        success: 'Order realized successfully',
+        error: 'Something went wrong, please try again'
+      }
+    )
     setTimeout(() => {
-      if (order) {
+      if (sendAPI) {
         return deleteProducts
       }
     }, 5000)
