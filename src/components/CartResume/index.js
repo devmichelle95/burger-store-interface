@@ -9,7 +9,7 @@ import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
-  const { cartProducts } = useCart()
+  const { cartProducts, deleteProducts } = useCart()
 
   useEffect(() => {
     const sumAllItems = cartProducts.reduce((acc, current) => {
@@ -27,6 +27,11 @@ export function CartResume() {
       success: 'Order realized successfully',
       error: 'Something went wrong, please try again'
     })
+    setTimeout(() => {
+      if (order) {
+        return deleteProducts
+      }
+    }, 5000)
   }
   return (
     <div>
