@@ -19,10 +19,10 @@ export function Header() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { logout, userData } = useUser()
-  const { eraseAtLogout } = useCart()
+  const { eraseAtFinish } = useCart()
   const clickLogout = () => {
     logout()
-    eraseAtLogout()
+    eraseAtFinish()
     navigate('/login')
   }
   return (

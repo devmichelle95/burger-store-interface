@@ -27,8 +27,6 @@ export function Menu() {
     }
   }, [state?.categoryId])
 
-  console.log(state)
-
   useEffect(() => {
     async function loadCategories() {
       const { data } = await apiBurgerStore.get('categories')

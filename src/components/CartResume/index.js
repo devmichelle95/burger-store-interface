@@ -9,7 +9,7 @@ import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
-  const { cartProducts } = useCart()
+  const { cartProducts, ereaseAtFinish } = useCart()
 
   useEffect(() => {
     const sumAllItems = cartProducts.reduce((acc, current) => {
@@ -22,11 +22,25 @@ export function CartResume() {
     const order = cartProducts.map(product => {
       return { id: product.id, quantity: product.quantity }
     })
-    await toast.promise(apiBurgerStore.post('order', { products: order }), {
-      pending: 'Processing your order',
-      success: 'Order realized successfully',
-      error: 'Something went wrong, please try again'
-    })
+    try {
+      const { status } = await apiBurgerStore.post(
+        'order',
+        { products: order },
+        { validateStatus: () => true }
+      )
+      if (status === 201 || status === 200) {
+        toast.success('Order realized successfully')
+      } else {
+        throw new Error()
+      }
+    } catch (err) {
+      toast.error('Something went wrong, please try again')
+    }
+    // await toast.promise(apiBurgerStore.post('order', { products: order }), {
+    // pending: 'Processing your order',
+    // success: 'Order realized successfully',
+    // error: 'Something went wrong, please try again'
+    // })
   }
   return (
     <div>
@@ -47,7 +61,7 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={submitOrder}
+        onClick={(submitOrder, ereaseAtFinish)}
       >
         Finish Order
       </ClickButton>

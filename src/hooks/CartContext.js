@@ -59,7 +59,7 @@ export const CartProvider = ({ children }) => {
       deleteProducts(ProductId)
     }
   }
-  const eraseAtLogout = async () => {
+  const eraseAtFinish = async () => {
     await localStorage.clear('codeburger:cartInfo')
   }
 
@@ -80,7 +80,7 @@ export const CartProvider = ({ children }) => {
         cartProducts,
         increaseProducts,
         reduceProducts,
-        eraseAtLogout
+        eraseAtFinish
       }}
     >
       {children}
