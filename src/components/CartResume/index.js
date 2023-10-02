@@ -29,6 +29,8 @@ export function CartResume() {
       success: 'Order realized successfully',
       error: 'Something went wrong, please try again'
     })
+    navigate('/')
+    ereaseAtFinish()
   }
 
   return (
@@ -50,7 +52,7 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={({ submitOrder }, navigate('/'), ereaseAtFinish())}
+        onClick={() => submitOrder}
       >
         Finish Order
       </ClickButton>
