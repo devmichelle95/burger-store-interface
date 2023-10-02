@@ -32,7 +32,7 @@ export function CartResume() {
     )
     setTimeout(() => {
       if (sendAPI) {
-        return deleteProducts
+        return deleteProducts()
       }
     }, 5000)
   }
