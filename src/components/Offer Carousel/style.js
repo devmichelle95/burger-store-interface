@@ -51,8 +51,8 @@ export const ProductPrice = styled.p`
 `
 
 export const Image = styled.img`
-  width: 150px;
-  padding: 60px;
+  width: 250px;
+  height: 250px;
 
   border-radius: 12px;
 `
