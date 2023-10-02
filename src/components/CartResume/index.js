@@ -29,13 +29,14 @@ export function CartResume() {
       success: 'Order realized successfully',
       error: 'Something went wrong, please try again'
     })
-
-    setTimeout(() => {
-      if (order) {
-        const cleanCart = deleteProducts
-        return cleanCart.navigate(paths.Home)
-      }
-    }, 3000)
+    return (
+      deleteProducts(order),
+      setTimeout(() => {
+        if (order) {
+          navigate(paths.Home)
+        }
+      }, 3000)
+    )
   }
 
   return (
