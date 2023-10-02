@@ -32,7 +32,8 @@ export function CartResume() {
 
     setTimeout(() => {
       if (order) {
-        return cartProducts.deleteProducts(navigate(paths.Home))
+        const cleanCart = deleteProducts
+        return cleanCart.navigate(paths.Home)
       }
     }, 3000)
   }
