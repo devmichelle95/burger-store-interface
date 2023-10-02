@@ -32,11 +32,9 @@ export function CartResume() {
 
     setTimeout(() => {
       if (order) {
-        navigate(paths.Home)
+        return cartProducts.deleteProducts(navigate(paths.Home))
       }
     }, 3000)
-
-    deleteProducts()
   }
 
   return (
