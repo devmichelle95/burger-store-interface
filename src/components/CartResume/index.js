@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
+import paths from '../../constants/paths'
 import { useCart } from '../../hooks/CartContext'
 import apiBurgerStore from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
@@ -9,8 +11,8 @@ import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
-  const { cartProducts } = useCart()
-
+  const { cartProducts, ereaseAtFinish } = useCart()
+  const navigate = useNavigate()
   useEffect(() => {
     const sumAllItems = cartProducts.reduce((acc, current) => {
       return current.price * current.quantity + acc
@@ -27,8 +29,14 @@ export function CartResume() {
       success: 'Order realized successfully',
       error: 'Something went wrong, please try again'
     })
+    ereaseAtFinish(order)
+
+    setTimeout(() => {
+      if (order) {
+        navigate(paths.Home)
+      }
+    }, 5000)
   }
-  console.log(submitOrder)
 
   return (
     <div>
