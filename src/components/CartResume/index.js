@@ -30,7 +30,7 @@ export function CartResume() {
       error: 'Something went wrong, please try again'
     })
     return (
-      deleteProducts(order),
+      deleteProducts,
       setTimeout(() => {
         if (order) {
           navigate(paths.Home)
