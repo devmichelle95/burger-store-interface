@@ -9,7 +9,7 @@ import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
-  const { cartProducts, deleteProducts } = useCart()
+  const { cartProducts, ereaseAtFinish } = useCart()
 
   useEffect(() => {
     const sumAllItems = cartProducts.reduce((acc, current) => {
@@ -32,7 +32,7 @@ export function CartResume() {
     )
     setTimeout(() => {
       if (sendAPI) {
-        return deleteProducts()
+        return ereaseAtFinish()
       }
     }, 5000)
   }
