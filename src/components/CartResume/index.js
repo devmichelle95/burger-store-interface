@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { useCart } from '../../hooks/CartContext'
@@ -10,8 +9,7 @@ import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
-  const { cartProducts, ereaseAtFinish } = useCart()
-  const navigate = useNavigate()
+  const { cartProducts } = useCart()
 
   useEffect(() => {
     const sumAllItems = cartProducts.reduce((acc, current) => {
@@ -30,11 +28,7 @@ export function CartResume() {
       error: 'Something went wrong, please try again'
     })
   }
-  const onSubmit = () => {
-    submitOrder()
-    ereaseAtFinish()
-    navigate('/')
-  }
+  console.log(submitOrder)
 
   return (
     <div>
@@ -53,7 +47,10 @@ export function CartResume() {
           </p>
         </div>
       </Container>
-      <ClickButton style={{ width: '100%', marginTop: 30 }} onClick={onSubmit}>
+      <ClickButton
+        style={{ width: '100%', marginTop: 30 }}
+        onClick={submitOrder}
+      >
         Finish Order
       </ClickButton>
     </div>
