@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { useCart } from '../../hooks/CartContext'
@@ -10,6 +11,7 @@ export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
   const { cartProducts, ereaseAtFinish } = useCart()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const sumAllItems = cartProducts.reduce((acc, current) => {
@@ -22,20 +24,15 @@ export function CartResume() {
     const order = cartProducts.map(product => {
       return { id: product.id, quantity: product.quantity }
     })
-    const sendAPI = await toast.promise(
-      apiBurgerStore.post('order', { products: order }),
-      {
-        pending: 'Processing your order',
-        success: 'Order realized successfully',
-        error: 'Something went wrong, please try again'
-      }
-    )
-    setTimeout(() => {
-      if (sendAPI) {
-        return ereaseAtFinish()
-      }
-    }, 5000)
+    await toast.promise(apiBurgerStore.post('order', { products: order }), {
+      pending: 'Processing your order',
+      success: 'Order realized successfully',
+      error: 'Something went wrong, please try again'
+    })
+    navigate('/')
+    ereaseAtFinish()
   }
+
   return (
     <div>
       <Container>
@@ -55,7 +52,7 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={submitOrder}
+        onClick={{ submitOrder }}
       >
         Finish Order
       </ClickButton>
