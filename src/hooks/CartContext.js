@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 export const CartContext = createContext({})
 
 export const CartProvider = ({ children }) => {
-  const [cartProducts, setCartProducts] = useState([0])
+  const [cartProducts, setCartProducts] = useState([])
 
   const updateLocalStorage = async products => {
     await localStorage.setItem('codeburger:cartInfo', JSON.stringify(products))
@@ -78,6 +78,7 @@ export const CartProvider = ({ children }) => {
       value={{
         putProductsInCart,
         cartProducts,
+        deleteProducts,
         increaseProducts,
         reduceProducts,
         eraseAtFinish
