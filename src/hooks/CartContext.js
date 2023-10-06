@@ -60,7 +60,10 @@ export const CartProvider = ({ children }) => {
     }
   }
   const eraseAtFinish = async () => {
-    await localStorage.removeItem('codeburger:cartInfo')
+    const clearCart = await localStorage.removeItem('codeburger:cartInfo')
+    if (clearCart) {
+      return setCartProducts()
+    }
   }
 
   useEffect(() => {

@@ -11,8 +11,9 @@ import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
-  const { cartProducts, deleteProducts } = useCart()
+  const { cartProducts } = useCart()
   const navigate = useNavigate()
+
   useEffect(() => {
     const sumAllItems = cartProducts.reduce((acc, current) => {
       return current.price * current.quantity + acc
@@ -31,11 +32,10 @@ export function CartResume() {
     })
     setTimeout(() => {
       if (order) {
-        deleteProducts.navigate(paths.Home)
+        navigate(paths.Home)
       }
     }, 3000)
   }
-  console.log(deleteProducts)
 
   return (
     <div>
