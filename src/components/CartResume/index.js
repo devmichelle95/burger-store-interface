@@ -10,8 +10,9 @@ import { ClickButton } from '../Button'
 import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
+  const [setCart] = useState(0)
   const [deliveryTax] = useState(5)
-  const { cartProducts, deleteProducts } = useCart()
+  const { cartProducts, ereaseAtFinish } = useCart()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -32,7 +33,8 @@ export function CartResume() {
     })
     setTimeout(() => {
       if (order) {
-        return deleteProducts
+        ereaseAtFinish()
+        navigate(paths.Home)
       }
     }, 2000)
   }
