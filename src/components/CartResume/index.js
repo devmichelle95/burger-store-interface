@@ -30,10 +30,9 @@ export function CartResume() {
       success: 'Order realized successfully',
       error: 'Something went wrong, please try again'
     })
-    const clear = deleteProducts(order)
     setTimeout(() => {
-      if (clear) {
-        navigate(paths.Home)
+      if (order) {
+        return deleteProducts
       }
     }, 2000)
   }
