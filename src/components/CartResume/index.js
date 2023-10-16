@@ -11,7 +11,7 @@ import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
-  const { cartProducts, ereaseAtFinish } = useCart()
+  const { cartProducts, deleteProducts } = useCart()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -30,7 +30,6 @@ export function CartResume() {
       success: 'Order realized successfully',
       error: 'Something went wrong, please try again'
     })
-    await ereaseAtFinish(order)
     setTimeout(() => {
       if (order) {
         navigate(paths.Home)
@@ -57,10 +56,13 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={submitOrder}
+        onClick={() => {
+          submitOrder(deleteProducts)
+        }}
       >
         Finish Order
       </ClickButton>
+      )
     </div>
   )
 }

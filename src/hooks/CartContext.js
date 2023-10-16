@@ -59,11 +59,9 @@ export const CartProvider = ({ children }) => {
       deleteProducts(ProductId)
     }
   }
-  const eraseAtFinish = async Products => {
+  const eraseAtFinish = async () => {
     const clearCart = await localStorage.removeItem('codeburger:cartInfo')
-    if (clearCart) {
-      return deleteProducts(Products)
-    }
+    return clearCart
   }
 
   useEffect(() => {
