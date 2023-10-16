@@ -30,12 +30,12 @@ export function CartResume() {
       success: 'Order realized successfully',
       error: 'Something went wrong, please try again'
     })
+    await ereaseAtFinish(order)
     setTimeout(() => {
       if (order) {
         navigate(paths.Home)
       }
-      setFinalPrice(ereaseAtFinish)
-    }, 3000)
+    }, 2000)
   }
 
   return (
