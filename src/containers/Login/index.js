@@ -9,7 +9,6 @@ import burgerlogo from '../../assets/bugerlogo.svg'
 import burgerintro from '../../assets/burgerintro.svg'
 import { ClickButton, ErrorMessage } from '../../components'
 import paths from '../../constants/paths'
-import { CartContext } from '../../hooks/CartContext'
 import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 import {
@@ -24,7 +23,7 @@ import {
 export function Login() {
   const navigate = useNavigate()
   const { putUserData } = useUser()
-  const { cartProducts } = CartContext()
+
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -57,7 +56,6 @@ export function Login() {
     )
 
     putUserData(data)
-    cartProducts(data)
 
     setTimeout(() => {
       if (data.admin) {
