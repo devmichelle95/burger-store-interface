@@ -10,7 +10,6 @@ import { ClickButton } from '../Button'
 import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
-  const [setCart] = useState(0)
   const [deliveryTax] = useState(5)
   const { cartProducts, ereaseAtFinish } = useCart()
   const navigate = useNavigate()
@@ -34,11 +33,15 @@ export function CartResume() {
     setTimeout(() => {
       if (order) {
         ereaseAtFinish()
-        navigate(paths.Home)
       }
     }, 2000)
+    setFinalPrice(0)
   }
 
+  const finalClick = () => {
+    submitOrder()
+    navigate(paths.Home)
+  }
   return (
     <div>
       <Container>
@@ -58,7 +61,7 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={submitOrder}
+        onClick={finalClick}
       >
         Finish Order
       </ClickButton>
