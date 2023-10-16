@@ -34,6 +34,7 @@ export function CartResume() {
       if (order) {
         navigate(paths.Home)
       }
+      setFinalPrice(ereaseAtFinish)
     }, 3000)
   }
 
@@ -56,7 +57,7 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={(submitOrder, ereaseAtFinish)}
+        onClick={submitOrder}
       >
         Finish Order
       </ClickButton>
