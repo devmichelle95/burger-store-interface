@@ -30,8 +30,9 @@ export function CartResume() {
       success: 'Order realized successfully',
       error: 'Something went wrong, please try again'
     })
+    const clear = deleteProducts(order)
     setTimeout(() => {
-      if (order) {
+      if (clear) {
         navigate(paths.Home)
       }
     }, 2000)
@@ -56,13 +57,10 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={() => {
-          submitOrder(deleteProducts)
-        }}
+        onClick={submitOrder}
       >
         Finish Order
       </ClickButton>
-      )
     </div>
   )
 }
