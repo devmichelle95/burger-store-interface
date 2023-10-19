@@ -30,6 +30,7 @@ export function CartResume() {
       success: 'Order realized successfully',
       error: 'Something went wrong, please try again'
     })
+
     setTimeout(() => {
       if (order) {
         ereaseAtFinish()
