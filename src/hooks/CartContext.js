@@ -59,9 +59,11 @@ export const CartProvider = ({ children }) => {
       deleteProducts(ProductId)
     }
   }
-  const eraseAtFinish = async () => {
+  const eraseAtFinish = async ProductId => {
     const clearCart = await localStorage.removeItem('codeburger:cartInfo')
-    return clearCart
+    const cleanScreen = cartProducts.filter(pd => pd.id !== ProductId)
+
+    setCartProducts(clearCart, cleanScreen)
   }
 
   useEffect(() => {

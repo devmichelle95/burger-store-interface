@@ -33,7 +33,7 @@ export function CartResume() {
 
     setTimeout(() => {
       if (order) {
-        ereaseAtFinish()
+        ereaseAtFinish(order)
       }
     }, 2000)
     setFinalPrice(0)
