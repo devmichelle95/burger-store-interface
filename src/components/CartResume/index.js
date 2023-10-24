@@ -33,7 +33,7 @@ export function CartResume() {
 
     setTimeout(() => {
       if (order) {
-        navigate(paths.Home)
+        eraseAtFinish(order)
       }
     }, 2000)
     setFinalPrice(0)
@@ -58,7 +58,7 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={(submitOrder, eraseAtFinish)}
+        onClick={submitOrder}
       >
         Finish Order
       </ClickButton>
