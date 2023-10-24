@@ -11,7 +11,7 @@ import { Container } from './style'
 export function CartResume() {
   const [finalPrice, setFinalPrice] = useState(0)
   const [deliveryTax] = useState(5)
-  const { cartProducts } = useCart()
+  const { cartProducts, eraseAtFinish } = useCart()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -58,7 +58,7 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={submitOrder}
+        onClick={(submitOrder, eraseAtFinish)}
       >
         Finish Order
       </ClickButton>
