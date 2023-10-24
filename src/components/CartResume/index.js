@@ -39,6 +39,11 @@ export function CartResume() {
     setFinalPrice(0)
   }
 
+  const finalClick = () => {
+    submitOrder()
+    navigate(paths.Home)
+  }
+
   return (
     <div>
       <Container>
@@ -58,7 +63,7 @@ export function CartResume() {
       </Container>
       <ClickButton
         style={{ width: '100%', marginTop: 30 }}
-        onClick={submitOrder}
+        onClick={finalClick}
       >
         Finish Order
       </ClickButton>
